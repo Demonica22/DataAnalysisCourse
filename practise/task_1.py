@@ -1,5 +1,6 @@
 import csv
-
+import time
+start = time.time()
 with open('../diabetes_data_upload.csv', newline='') as csvfile:
     data = list(csv.reader(csvfile))
 
@@ -20,7 +21,9 @@ avg_age_for_male = sum_age_for_male / male_count
 
 print(f"Avarage age is: {avg_age}")
 print(f"Avarage age for female is: {avg_age_for_female}")
-print(f"Avarage age male is: {avg_age_for_male}")
+print(f"Avarage age for male is: {avg_age_for_male}")
+print(f"Execution time: {time.time() - start}")
+
 
 print("-" * 15)
 
