@@ -37,7 +37,7 @@ elif part == 2:
 elif part == 3:
     df = pd.read_csv('../diabetes_data_upload.csv')
     df.replace({"No": 0, "Negative": 0, "Yes": 1, "Positive": 1}, inplace=True)
-    # df.replace({"Male":0, "Female":1}, inplace=True) # Надо ли?
+    df.replace({"Male":0, "Female":1}, inplace=True) # Надо ли?
     df.to_csv('changed_values.csv', index=False)
     print(df)
     column_types_df = (pd.DataFrame({'Column': df.dtypes.index,
