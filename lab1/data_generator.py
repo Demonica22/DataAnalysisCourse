@@ -41,7 +41,6 @@ class DataGenerator:
 
         col = len(mu0)
         class0 = np.random.normal(mu0[0], sigma0[0], [N, 1])  # инициализируем первый столбец
-        print(class0.shape)
 
         class1 = np.random.normal(mu1[0], sigma1[0], [N, 1])
         for i in range(1, col):
