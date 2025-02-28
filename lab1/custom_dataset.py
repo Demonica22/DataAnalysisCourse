@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 from data_generator import DataGenerator
 
 col = 2
-N = 10000
-X, Y, class0, class1 = DataGenerator.onlinear_dataset_N(N)
+N = 500
+X, Y, class0, class1 = DataGenerator.nonlinear_dataset_N(N)
 figure, axis = plt.subplots(2, 2)
 
 axis[0, 0].set_title(f"Гистограмма X")

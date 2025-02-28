@@ -64,7 +64,7 @@ class DataGenerator:
         return X, Y, class0, class1
 
     @staticmethod
-    def onlinear_dataset_N(num_points):
+    def nonlinear_dataset_N(num_points):
         """
         Генерирует два массива точек, распределенных в пределах пятиугольника и эллипса.
         """
@@ -90,7 +90,7 @@ class DataGenerator:
                 ellipse_points.append((x, y))
         class0 = np.array(pentagon_points)
         class1 = np.array(ellipse_points)
-        X = np.vstack((class0,class1))
+        X = np.vstack((class0, class1))
         Y0 = np.zeros((num_points, 1), dtype=bool)
         Y1 = np.ones((num_points, 1), dtype=bool)
         Y = np.vstack((Y0, Y1)).ravel()
