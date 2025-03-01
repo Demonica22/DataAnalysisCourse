@@ -39,7 +39,7 @@ N = 1000
 if not all([e.exists() for e in path_to_files]):
 
     # X, Y, *_ = DataGenerator.norm_dataset((mu0, mu1), (sigma0, sigma1), N)
-    X, Y, *_ = DataGenerator.nonlinear_dataset_N(N * 2)
+    X, Y, *_ = DataGenerator.nonlinear_dataset_N(N)
 
     train_size = 0.7
     trainCount = round(train_size * N * 2)  # *2 потому что было 2 класса
@@ -56,14 +56,14 @@ else:
     Xtest = np.load(x_test_path)
     Ytrain = np.load(y_train_path)
     Ytest = np.load(y_test_path)
-print(Xtrain)
-print(Xtrain.shape)
-print(Ytrain)
-print(Ytrain.shape)
-print(Xtest)
-print(Xtest.shape)
-print(Ytest)
-print(Ytest.shape)
+# print(Xtrain)
+# print(Xtrain.shape)
+# print(Ytrain)
+# print(Ytrain.shape)
+# print(Xtest)
+# print(Xtest.shape)
+# print(Ytest)
+# print(Ytest.shape)
 """
 [[ 2.89062473  5.12569201]
  [ 0.0512457   1.35763416]
@@ -113,6 +113,8 @@ clf = LogisticRegression(random_state=Nvar, solver='saga').fit(Xtrain, Ytrain)
 pred_test = clf.predict(Xtest)
 # print(pred_test)
 pred_test_proba = clf.predict_proba(Xtest)
+print(pred_test_proba)
+
 
 pred_train = clf.predict(Xtrain)
 pred_train_proba = clf.predict_proba(Xtrain)
@@ -144,7 +146,8 @@ if with_graphs:
     axis[1].set_title("Результаты классификации, трейн")
     figure.legend(['Класс 0', 'Класс 1'])
     plt.show()
-print(Ytest.size)
-print(calculate_metrics(pred_test, Ytest))
 print(Ytrain.size)
 print(calculate_metrics(pred_train, Ytrain))
+print(Ytest.size)
+print(calculate_metrics(pred_test, Ytest))
+

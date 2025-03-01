@@ -92,12 +92,17 @@ class DataGenerator:
         class1 = np.array(ellipse_points)
         X = np.vstack((class0, class1))
         Y0 = np.zeros((num_points, 1), dtype=bool)
+
         Y1 = np.ones((num_points, 1), dtype=bool)
+
         Y = np.vstack((Y0, Y1)).ravel()
 
+
+
         rng = np.random.default_rng()
-        arr = np.arange(num_points)
+        arr = np.arange(num_points * 2)
         rng.shuffle(arr)
         X = X[arr]
         Y = Y[arr]
+
         return X, Y, class0, class1
