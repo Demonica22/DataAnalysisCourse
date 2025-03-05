@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+
 from sklearn.metrics import *
 # from sklearn.pipeline import make_pipeline
 
@@ -10,8 +11,10 @@ df = pd.read_csv("../changed_values.csv")
 
 X = df.drop('class', axis=1).values
 Y = df['class'].values
-
+print(X[:, 0])
 X[:, 0] = preprocessing.scale(X[:, 0])
+print(X[:, 0])
+exit()
 enc = preprocessing.OneHotEncoder()
 enc.fit(X)
 x_encoded = enc.transform(X).toarray()
